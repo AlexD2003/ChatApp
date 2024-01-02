@@ -1,0 +1,73 @@
+
+  
+  .wrapper {
+    height: 100%;
+    background-color: lightblue; /* Bright blue color for the entire viewport */
+    display: flex;
+    flex-direction: column;
+  }
+/* Center the .center-box */
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(21, 21, 213); 
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px; 
+}
+
+
+.center-box img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.center-box div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.center-box .username,
+.center-box .room,
+.center-box .join-button {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.center-box .join-button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: rgb(57, 241, 57);
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.center-box .join-button:hover {
+    background-color: lightgray;
+}
+.footer {
+    padding: 10px;
+    background-color: #119fac;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute; 
+    bottom: 0; 
+    z-index: 999; 
+    left: 0; 
+    right: 0; 
+}

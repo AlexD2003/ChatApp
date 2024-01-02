@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="chat_header">
+    <h3 class="text-center my-2">"{{roomName}}" Room</h3>
+    <button (click)="leaveRoom()" class="btn btn-danger">Leave Chat</button>
+  </div>
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4 class="text-white">Connected Users</h4>
+          </div>
+          
+        </div>
+        <div class="inbox_chat">
+          <ng-container *ngFor="let user of chatService.connectedUser$ | async">
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img">
+                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="sunil">
+                </div>
+                <div class="chat_ib mt-3">
+                  <h5>{{user}}</h5>
+                  <span class="online"></span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="mesgs">
+        <div #scrollMe class="msg_history">
+          <div class="message-container">
+            <div *ngFor="let message of messages" [ngClass]="{
+              'incoming_msg': message.user !== loggedInUserName,
+              'outgoing_msg': message.user === loggedInUserName
+            }">
+              <div class="message-item">
+                <div *ngIf="message.user !== loggedInUserName" class="incoming_msg_img">
+                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="sunil">
+                </div>
+                <div class="message-content">
+                  <div *ngIf="message.user !== loggedInUserName" class="received_msg">
+                    <div class="received_withd_msg">
+                      <p>{{ message.message }}</p>
+                      <span class="time_date">{{ message.user }} | {{ message.time | date:'dd/MM/yyyy HH:mm' }}</span>
+                    </div>
+                  </div>
+                  <div *ngIf="message.user === loggedInUserName" class="sent_msg">
+                    <p>{{ message.message }}</p>
+                    <span class="time_date">{{ message.user }} | {{ message.time | date:'dd/MM/yyyy HH:mm' }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="type_msg">
+      <div class="input_msg_write">
+        <input [(ngModel)]="inputMessage" type="text" class="write_msg" placeholder="Type a message" />
+        <button (click)="sendMessage()" class="msg_send_btn" type="button" [disabled]="!inputMessage">
+          <img src="https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145761_1280.png" alt="Send" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "footer">
+  Alex Domnit 2023
+</div>

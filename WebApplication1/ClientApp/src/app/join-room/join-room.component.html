@@ -1,0 +1,12 @@
+<div class="center-box">
+    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile Picture">
+    <form [formGroup]="joinRoomForm" class="form">
+        <input formControlName="userName" type="text" placeholder="Username" class="username">
+        <input formControlName="roomName" type="text" placeholder="Room" class="room">
+        <button [disabled]="joinRoomForm.invalid" (click)="joinRoom()" type="button" class="join-button">Join</button>
+    </form>
+</div>
+<div class = "footer">
+    Alex Domnit 2023
+</div>
+
